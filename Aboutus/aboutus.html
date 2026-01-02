@@ -36,12 +36,12 @@
     <!-- Header (matches Contact page with mobile menu) -->
     <header class="border-b border-slate-800 bg-surface-800/95 backdrop-blur">
         <div class="mx-auto flex w-full items-center justify-between px-10 py-4 md:px-[60px] lg:px-20">
-          <!-- Logo -->
+                <!-- Logo -->
           <a href="../homepage/index.html" class="flex items-center gap-3">
             <img src="logopchris.svg" alt="Pchris Autos Logo" class="h-8 w-auto sm:h-9" />
             <span class="hidden text-sm font-semibold tracking-wide text-slate-100 sm:inline">Pchris Autos</span>
           </a>
-
+                
           <!-- Centered Nav -->
           <nav class="hidden flex-1 justify-center text-sm font-medium text-slate-300 sm:flex sm:items-center sm:gap-6">
             <a href="../homepage/index.html" class="transition hover:text-white">Home</a>
@@ -49,7 +49,7 @@
             <a href="./aboutus.html" class="transition hover:text-white">About Us</a>
             <a href="../Contactus/contactus.html" class="transition hover:text-white">Contact</a>
           </nav>
-
+                
           <!-- CTA -->
           <a
             href="https://wa.me/2348032318353"
@@ -57,9 +57,9 @@
             rel="noopener noreferrer"
             class="hidden rounded-md bg-brand px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white shadow-sm transition hover:bg-brand-light sm:inline-flex"
           >
-            Book Appointment
+                    Book Appointment
           </a>
-
+                
           <!-- Mobile menu button (right on mobile) -->
           <button
             id="mobile-menu-toggle"
@@ -69,10 +69,10 @@
           >
             <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-        <!-- Mobile Menu -->
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
         <div
           id="mobile-menu"
           class="hidden border-t border-slate-800 bg-surface-800 sm:hidden"
@@ -88,10 +88,10 @@
               href="../Contactus/contactus.html#book-appointment"
               class="mt-1 rounded-md bg-brand px-3 py-2 text-xs uppercase tracking-wide text-center text-white hover:bg-brand-light"
             >
-              Book Appointment
+                        Book Appointment
             </a>
           </nav>
-        </div>
+            </div>
     </header>
 
     <!-- Hero Section -->
@@ -173,7 +173,7 @@
                         <span class="ml-2 md:ml-3 text-xl sm:text-2xl font-bold">Pchris Autos</span>
                     </div>
                     <p class="text-gray-400 text-sm sm:text-base leading-relaxed mb-4 sm:mb-6">Experience the pinnacle of automotive engineering. We curate the finest collection of luxury and performance vehicles for the discerning driver.</p>
-                    <p class="text-gray-500 text-xs sm:text-sm">© 2024 Pchris Autos. All rights reserved.</p>
+                    <p class="text-gray-500 text-xs sm:text-sm">© 2026 Pchris Autos. All rights reserved.</p>
                 </div>
                 
                 <!-- Quick Links -->
@@ -254,7 +254,7 @@
       const mobileMenu = document.getElementById('mobile-menu');
       if (mobileToggle && mobileMenu) {
         mobileToggle.addEventListener('click', () => {
-          mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('hidden');
           const expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
           mobileToggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
         });
