@@ -26,26 +26,81 @@
         },
       };
     </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            background-size: 1000px 100%;
+            animation: shimmer 3s infinite;
+        }
+        .glass-effect {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .premium-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 25%, #8b5cf6 50%, #ec4899 75%, #f59e0b 100%);
+        }
+    </style>
   </head>
 
   <body class="min-h-screen bg-surface-800 text-slate-100 antialiased">
     <!-- Page Wrapper -->
     <div class="flex min-h-screen flex-col">
       <!-- Top Navigation -->
-      <header class="border-b border-slate-800 bg-surface-800/95 backdrop-blur">
+      <header class="border-b border-slate-800/50 bg-surface-800/95 backdrop-blur-md sticky top-0 z-50 shadow-lg shadow-black/20">
         <div class="mx-auto flex w-full items-center justify-between px-10 py-4 md:px-[60px] lg:px-20">
           <!-- Logo -->
           <a href="../index.html" class="flex items-center gap-3">
-            <img src="../logopchris.svg" alt="Pchris Autos Logo" class="h-8 w-auto sm:h-9" />
+            <img src="../logopchris.svg" alt="Pchris Autos Logo" class="h-12 w-auto sm:h-14" />
             <span class="hidden text-sm font-semibold tracking-wide text-slate-100 sm:inline">Pchris Autos</span>
           </a>
 
           <!-- Centered Nav -->
-          <nav class="hidden flex-1 justify-center text-sm font-medium text-slate-300 sm:flex sm:items-center sm:gap-6">
-            <a href="../index.html" class="transition hover:text-white">Home</a>
-            <a href="../Inventory page/inventory.html" class="transition hover:text-white">Inventory</a>
-            <a href="../Aboutus/aboutus.html" class="transition hover:text-white">About Us</a>
-            <a href="./contactus.html" class="text-white">Contact</a>
+          <nav class="hidden flex-1 justify-center text-sm font-medium text-slate-300 sm:flex sm:items-center sm:gap-8">
+            <a href="../index.html" class="relative transition hover:text-white group">
+              <span>Home</span>
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"></span>
+            </a>
+            <a href="../Inventory page/inventory.html" class="relative transition hover:text-white group">
+              <span>Inventory</span>
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"></span>
+            </a>
+            <a href="../Aboutus/aboutus.html" class="relative transition hover:text-white group">
+              <span>About Us</span>
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"></span>
+            </a>
+            <a href="./contactus.html" class="relative text-white group">
+              <span>Contact</span>
+              <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-purple-500"></span>
+            </a>
           </nav>
 
           <!-- CTA -->
@@ -53,9 +108,10 @@
             href="https://wa.me/2348032318353"
             target="_blank"
             rel="noopener noreferrer"
-            class="hidden rounded-md bg-brand px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white shadow-sm transition hover:bg-brand-light sm:inline-flex"
+            class="hidden relative overflow-hidden rounded-lg bg-blue-600 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white shadow-lg shadow-blue-500/50 transition-all hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-500/60 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-800 sm:inline-flex group"
           >
-            Book Appointment
+            <span class="relative z-10">Book Appointment</span>
+            <div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity"></div>
           </a>
 
           <!-- Mobile menu button (right on mobile) -->
@@ -84,7 +140,7 @@
             <a href="./contactus.html" class="rounded-md px-2 py-2 hover:bg-surface-700">Contact</a>
             <a
               href="#book-appointment"
-              class="mt-1 rounded-md bg-brand px-3 py-2 text-xs uppercase tracking-wide text-center text-white hover:bg-brand-light"
+              class="mt-1 rounded-md bg-blue-600 hover:bg-blue-700 px-3 py-2 text-xs uppercase tracking-wide text-center text-white"
             >
               Book Appointment
             </a>
@@ -95,13 +151,23 @@
       <!-- Main Content -->
       <main class="flex-1">
         <!-- Hero / Contact Methods -->
-        <section class="border-b border-slate-800 bg-gradient-to-b from-surface-800 to-surface-700">
-          <div class="mx-auto w-full px-10 py-10 md:px-[60px] md:py-14 lg:px-20 lg:py-16">
+        <section class="relative border-b border-slate-800/50 bg-gradient-to-b from-surface-800 via-surface-800 to-surface-700 overflow-hidden">
+          <!-- Background Pattern -->
+          <div class="absolute inset-0 opacity-5">
+            <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+          </div>
+          <div class="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+          <div class="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
+          
+          <div class="mx-auto w-full px-10 py-10 md:px-[60px] md:py-14 lg:px-20 lg:py-16 relative z-10">
             <div class="text-center">
-              <h1
-                class="text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl"
-              >
-                Get in Touch
+              <div class="inline-block mb-4">
+                <span class="text-blue-400 text-sm sm:text-base font-semibold uppercase tracking-wider">
+                  Contact Us
+                </span>
+              </div>
+              <h1 class="font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl mb-4">
+                <span class="gradient-text">Get in Touch</span>
               </h1>
               <p class="mx-auto mt-4 max-w-2xl text-sm text-slate-300 sm:text-base">
                 Whether you're looking to acquire a new vehicle or have questions about our
@@ -115,10 +181,10 @@
             >
               <!-- Call Us -->
               <div
-                class="flex flex-col items-center rounded-xl border border-slate-800 bg-surface-700/60 p-5 text-center shadow-sm backdrop-blur sm:p-6"
+                class="group flex flex-col items-center glass-effect rounded-2xl p-5 text-center shadow-lg hover:shadow-2xl hover:shadow-blue-500/20 border border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:scale-105 sm:p-6"
               >
                 <div
-                  class="flex h-12 w-12 items-center justify-center rounded-full bg-brand/10 text-brand"
+                  class="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 text-blue-400 group-hover:scale-110 transition-transform duration-300"
                   aria-hidden="true"
                 >
                   <!-- Phone Icon -->
@@ -139,7 +205,7 @@
                 <p class="mt-1 text-xs text-slate-400 sm:text-sm">Mon–Fri from 9am to 6pm</p>
                 <a
                   href="tel:+15551234567"
-                  class="mt-3 text-sm font-medium text-brand-light hover:text-brand"
+                  class="mt-3 text-sm font-medium text-blue-400 hover:text-blue-300"
                 >
                   +234 803 231 8353
                 </a>
@@ -147,10 +213,10 @@
 
               <!-- Email Us -->
               <div
-                class="flex flex-col items-center rounded-xl border border-slate-800 bg-surface-700/60 p-5 text-center shadow-sm backdrop-blur sm:p-6"
+                class="group flex flex-col items-center glass-effect rounded-2xl p-5 text-center shadow-lg hover:shadow-2xl hover:shadow-purple-500/20 border border-white/10 hover:border-purple-500/30 transition-all duration-300 hover:scale-105 sm:p-6"
               >
                 <div
-                  class="flex h-12 w-12 items-center justify-center rounded-full bg-brand/10 text-brand"
+                  class="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 text-purple-400 group-hover:scale-110 transition-transform duration-300"
                   aria-hidden="true"
                 >
                   <!-- Mail Icon -->
@@ -172,7 +238,7 @@
                 </p>
                 <a
                   href="mailto:sales@pchrisautos.com"
-                  class="mt-3 text-sm font-medium text-brand-light hover:text-brand"
+                  class="mt-3 text-sm font-medium text-blue-400 hover:text-blue-300"
                 >
                   sales@pchrisautos.com
                 </a>
@@ -180,10 +246,10 @@
 
               <!-- Visit Us -->
               <div
-                class="flex flex-col items-center rounded-xl border border-slate-800 bg-surface-700/60 p-5 text-center shadow-sm backdrop-blur sm:p-6"
+                class="group flex flex-col items-center glass-effect rounded-2xl p-5 text-center shadow-lg hover:shadow-2xl hover:shadow-pink-500/20 border border-white/10 hover:border-pink-500/30 transition-all duration-300 hover:scale-105 sm:p-6"
               >
                 <div
-                  class="flex h-12 w-12 items-center justify-center rounded-full bg-brand/10 text-brand"
+                  class="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-pink-500/20 to-orange-500/20 text-pink-400 group-hover:scale-110 transition-transform duration-300"
                   aria-hidden="true"
                 >
                   <!-- Location Icon -->
@@ -256,7 +322,7 @@
               </div>
               
               <!-- Right Side - Booking Form -->
-              <div class="bg-gray-800 rounded-xl p-6 sm:p-8 lg:p-10">
+              <div class="glass-effect rounded-2xl p-6 sm:p-8 lg:p-10 shadow-2xl border border-white/10 hover:border-white/20 transition-all duration-300">
                 <form id="contact-page-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-4 sm:space-y-6">
                   <input type="hidden" name="access_key" value="4f818701-dc75-4caf-9750-de40cc236091">
                   <input type="hidden" name="redirect" value="false">
@@ -265,20 +331,20 @@
 
                   <div>
                     <label for="full-name" class="block text-sm font-medium mb-2">Full Name</label>
-                    <input type="text" id="full-name" name="name" placeholder="Full Name" required autocomplete="name" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                    <input type="text" id="full-name" name="name" placeholder="Full Name" required autocomplete="name" class="w-full bg-gray-900/50 border border-gray-700/50 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500/50 transition-all">
                   </div>
                   <div>
                     <label for="phone" class="block text-sm font-medium mb-2">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" placeholder="+234" required autocomplete="tel" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                    <input type="tel" id="phone" name="phone" placeholder="+234" required autocomplete="tel" class="w-full bg-gray-900/50 border border-gray-700/50 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500/50 transition-all">
                   </div>
                   <div>
                     <label for="email" class="block text-sm font-medium mb-2">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="Email Address" required autocomplete="email" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                    <input type="email" id="email" name="email" placeholder="Email Address" required autocomplete="email" class="w-full bg-gray-900/50 border border-gray-700/50 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500/50 transition-all">
                   </div>
                   <div>
                     <label for="date" class="block text-sm font-medium mb-2">Preferred Date</label>
                     <div class="relative">
-                      <input type="date" id="date" name="preferred_date" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                      <input type="date" id="date" name="preferred_date" class="w-full bg-gray-900/50 border border-gray-700/50 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500/50 transition-all">
                       <svg class="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                       </svg>
@@ -286,10 +352,11 @@
                   </div>
                   <div>
                     <label for="message" class="block text-sm font-medium mb-2">Message / Car of Interest</label>
-                    <textarea id="message" name="message" rows="4" placeholder="I am interested in the..." required class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent resize-none"></textarea>
+                    <textarea id="message" name="message" rows="4" placeholder="I am interested in the..." required class="w-full bg-gray-900/50 border border-gray-700/50 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500/50 transition-all resize-none"></textarea>
                   </div>
-                  <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold text-base sm:text-lg transition-colors">
-                    Request Appointment
+                  <button type="submit" class="group relative w-full overflow-hidden bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 shadow-lg shadow-blue-500/50 hover:shadow-xl hover:shadow-blue-500/60 hover:scale-105 text-white">
+                    <span class="relative z-10">Request Appointment</span>
+                    <div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   </button>
                 </form>
               </div>
@@ -305,7 +372,7 @@
                 <!-- Brand Info -->
                 <div class="sm:col-span-2 lg:col-span-1">
                     <div class="flex items-center mb-4 sm:mb-6">
-                        <img src="../logopchris.svg" alt="Pchris Autos Logo" class="w-8 h-8 sm:w-10 sm:h-10 object-contain">
+                        <img src="../logopchris.svg" alt="Pchris Autos Logo" class="w-14 h-14 sm:w-16 sm:h-16 object-contain">
                         <span class="ml-2 md:ml-3 text-xl sm:text-2xl font-bold">Pchris Autos</span>
                     </div>
                     <p class="text-gray-400 text-sm sm:text-base leading-relaxed mb-4 sm:mb-6">Experience the pinnacle of automotive engineering. We curate the finest collection of luxury and performance vehicles for the discerning driver.</p>
@@ -401,7 +468,7 @@
                     Thank you for contacting us! One of our team members will reach out to you within 24 hours.
                 </p>
 
-                <button onclick="closeModal()" class="w-full bg-brand hover:bg-brand-light px-6 py-3 rounded-lg font-semibold text-base transition-colors text-white">
+                <button onclick="closeModal()" class="w-full bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold text-base transition-colors text-white">
                     Close
                 </button>
             </div>
@@ -470,7 +537,7 @@
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
-      class="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-brand shadow-lg transition hover:scale-110 hover:bg-brand-light focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:ring-offset-surface-800"
+      class="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-blue-600 shadow-lg transition hover:scale-110 hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-surface-800"
     >
       <svg class="h-7 w-7 text-white" fill="currentColor" viewBox="0 0 24 24">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
