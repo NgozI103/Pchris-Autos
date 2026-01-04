@@ -68,21 +68,21 @@
         }
         @keyframes drive {
             0% {
-                transform: translateX(-100%) translateY(-50%) perspective(1000px) rotateY(-8deg) rotateX(2deg);
+                transform: translateX(-100%) perspective(1000px) rotateY(-8deg) rotateX(2deg);
                 opacity: 0;
             }
             5% {
                 opacity: 0.8;
             }
             50% {
-                transform: translateX(50vw) translateY(-50%) perspective(1000px) rotateY(-5deg) rotateX(1deg);
+                transform: translateX(50vw) perspective(1000px) rotateY(-5deg) rotateX(1deg);
                 opacity: 0.85;
             }
             95% {
                 opacity: 0.8;
             }
             100% {
-                transform: translateX(calc(100vw + 100%)) translateY(-50%) perspective(1000px) rotateY(-8deg) rotateX(2deg);
+                transform: translateX(calc(100vw + 100%)) perspective(1000px) rotateY(-8deg) rotateX(2deg);
                 opacity: 0;
             }
         }
@@ -91,21 +91,21 @@
         }
         @keyframes drive-reverse {
             0% {
-                transform: translateX(calc(100vw + 100%)) translateY(-50%) perspective(1000px) rotateY(8deg) rotateX(-2deg) scaleX(-1);
+                transform: translateX(calc(100vw + 100%)) perspective(1000px) rotateY(8deg) rotateX(-2deg) scaleX(-1);
                 opacity: 0;
             }
             5% {
                 opacity: 0.7;
             }
             50% {
-                transform: translateX(50vw) translateY(-50%) perspective(1000px) rotateY(5deg) rotateX(-1deg) scaleX(-1);
+                transform: translateX(50vw) perspective(1000px) rotateY(5deg) rotateX(-1deg) scaleX(-1);
                 opacity: 0.75;
             }
             95% {
                 opacity: 0.7;
             }
             100% {
-                transform: translateX(-100%) translateY(-50%) perspective(1000px) rotateY(8deg) rotateX(-2deg) scaleX(-1);
+                transform: translateX(-100%) perspective(1000px) rotateY(8deg) rotateX(-2deg) scaleX(-1);
                 opacity: 0;
             }
         }
@@ -126,9 +126,6 @@
               alt="Pchris Autos Logo"
               class="h-12 w-auto sm:h-14"
             />
-            <span class="hidden text-sm font-semibold tracking-wide text-slate-100 sm:inline">
-              Pchris Autos
-            </span>
           </a>
 
           <!-- Centered Nav -->
@@ -203,14 +200,14 @@
         <div class="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/95 to-gray-900/80 z-10"></div>
         
         <!-- Moving Vehicles - Covering Whole Hero Section -->
-        <div class="absolute top-1/2 left-0 -translate-y-1/2 w-[150vw] h-[100vh] sm:w-[140vw] sm:h-[105vh] md:w-[130vw] md:h-[110vh] lg:w-[120vw] lg:h-[115vh] z-15 animate-drive opacity-80">
-            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
+        <div class="absolute top-0 left-0 w-[200vw] h-[100vh] sm:w-[180vw] sm:h-[100vh] md:w-[160vw] md:h-[100vh] lg:w-[150vw] lg:h-[100vh] z-15 animate-drive opacity-80">
+            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=3000&q=80" 
                  alt="Moving Luxury Vehicle" 
                  class="w-full h-full object-cover filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] brightness-110"
                  style="transform: perspective(1000px) rotateY(-8deg) rotateX(2deg);">
         </div>
-        <div class="absolute top-1/2 left-0 -translate-y-1/2 w-[145vw] h-[95vh] sm:w-[135vw] sm:h-[100vh] md:w-[125vw] md:h-[105vh] lg:w-[115vw] lg:h-[110vh] z-15 animate-drive-reverse opacity-70">
-            <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
+        <div class="absolute top-0 left-0 w-[190vw] h-[100vh] sm:w-[170vw] sm:h-[100vh] md:w-[150vw] md:h-[100vh] lg:w-[140vw] lg:h-[100vh] z-15 animate-drive-reverse opacity-70">
+            <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=3000&q=80" 
                  alt="Moving Vehicle" 
                  class="w-full h-full object-cover filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] brightness-110"
                  style="transform: perspective(1000px) rotateY(8deg) rotateX(-2deg) scaleX(-1);">
