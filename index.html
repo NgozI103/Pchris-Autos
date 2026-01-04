@@ -26,14 +26,14 @@
       };
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         
         body {
             font-family: 'Inter', sans-serif;
         }
         
         .font-display {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Inter', sans-serif;
         }
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
@@ -65,6 +65,53 @@
         }
         .premium-gradient {
             background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 25%, #8b5cf6 50%, #ec4899 75%, #f59e0b 100%);
+        }
+        @keyframes drive {
+            0% {
+                transform: translateX(-100%) translateY(-50%) perspective(1000px) rotateY(-8deg) rotateX(2deg);
+                opacity: 0;
+            }
+            5% {
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateX(50vw) translateY(-50%) perspective(1000px) rotateY(-5deg) rotateX(1deg);
+                opacity: 0.85;
+            }
+            95% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateX(calc(100vw + 100%)) translateY(-50%) perspective(1000px) rotateY(-8deg) rotateX(2deg);
+                opacity: 0;
+            }
+        }
+        .animate-drive {
+            animation: drive 25s ease-in-out infinite;
+        }
+        @keyframes drive-reverse {
+            0% {
+                transform: translateX(calc(100vw + 100%)) translateY(-50%) perspective(1000px) rotateY(8deg) rotateX(-2deg) scaleX(-1);
+                opacity: 0;
+            }
+            5% {
+                opacity: 0.7;
+            }
+            50% {
+                transform: translateX(50vw) translateY(-50%) perspective(1000px) rotateY(5deg) rotateX(-1deg) scaleX(-1);
+                opacity: 0.75;
+            }
+            95% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateX(-100%) translateY(-50%) perspective(1000px) rotateY(8deg) rotateX(-2deg) scaleX(-1);
+                opacity: 0;
+            }
+        }
+        .animate-drive-reverse {
+            animation: drive-reverse 25s ease-in-out infinite;
+            animation-delay: 12.5s;
         }
     </style>
 </head>
@@ -154,7 +201,20 @@
         <!-- Animated Background Gradient -->
         <div class="absolute inset-0 premium-gradient opacity-20 z-0"></div>
         <div class="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/95 to-gray-900/80 z-10"></div>
-        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center bg-no-repeat z-0"></div>
+        
+        <!-- Moving Vehicles - Covering Whole Hero Section -->
+        <div class="absolute top-1/2 left-0 -translate-y-1/2 w-[100vw] h-[90vh] sm:w-[110vw] sm:h-[95vh] md:w-[120vw] md:h-[100vh] lg:w-[130vw] lg:h-[110vh] z-15 animate-drive opacity-80">
+            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
+                 alt="Moving Luxury Vehicle" 
+                 class="w-full h-full object-cover filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] brightness-110"
+                 style="transform: perspective(1000px) rotateY(-8deg) rotateX(2deg);">
+        </div>
+        <div class="absolute top-1/2 left-0 -translate-y-1/2 w-[95vw] h-[85vh] sm:w-[105vw] sm:h-[90vh] md:w-[115vw] md:h-[95vh] lg:w-[125vw] lg:h-[105vh] z-15 animate-drive-reverse opacity-70">
+            <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
+                 alt="Moving Vehicle" 
+                 class="w-full h-full object-cover filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] brightness-110"
+                 style="transform: perspective(1000px) rotateY(8deg) rotateX(-2deg) scaleX(-1);">
+        </div>
         
         <!-- Geometric Accent Shapes -->
         <div class="absolute top-20 right-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-float z-5"></div>
@@ -169,7 +229,7 @@
                 </div>
                 <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight">
                     <span class="gradient-text">Drive the</span><br>
-                    <span class="text-white">Extraordinary</span>
+                    <span class="gradient-text">Extraordinary</span>
                 </h1>
                 <p class="text-gray-300 text-base sm:text-lg md:text-xl mb-6 sm:mb-8 leading-relaxed max-w-xl mx-auto">Discover a curated selection of the world's finest vehicles. Where luxury meets performance, and every journey becomes a statement.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -177,11 +237,12 @@
                         <span class="relative z-10">View Inventory</span>
                         <div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </a>
-                    <a href="../Contactus/contactus.html" class="group inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 px-6 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 shadow-lg shadow-blue-500/50 hover:shadow-xl hover:shadow-blue-500/60 hover:scale-105 text-white gap-2">
-                        <span>Contact Us</span>
-                        <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <a href="../Contactus/contactus.html" class="group inline-flex items-center justify-center relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-6 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 shadow-lg shadow-blue-500/50 hover:shadow-xl hover:shadow-blue-500/60 hover:scale-105 text-white gap-2">
+                        <span class="relative z-10">Contact Us</span>
+                        <svg class="w-5 h-5 transition-transform group-hover:translate-x-1 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                         </svg>
+                        <div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </a>
                 </div>
             </div>
@@ -199,7 +260,7 @@
             <div class="text-center mb-12 sm:mb-16">
                 <span class="inline-block text-blue-400 text-sm sm:text-base font-semibold uppercase tracking-wider mb-3">Why Choose Us</span>
                 <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-                    <span class="gradient-text">Uncompromising</span> Excellence
+                    <span class="gradient-text">Uncompromising Excellence</span>
                 </h2>
             </div>
             
@@ -315,7 +376,7 @@
             <div class="bg-gray-800 rounded-3xl p-8 sm:p-12 lg:p-16 max-w-4xl mx-auto border border-gray-700">
                 <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
                     <span class="gradient-text">Ready to find</span><br>
-                    <span class="text-white">your dream car?</span>
+                    <span class="gradient-text">your dream car?</span>
                 </h2>
                 <p class="text-gray-300 text-base sm:text-lg md:text-xl mb-6 sm:mb-8 max-w-2xl mx-auto">Browse our current inventory of premium vehicles and discover the perfect match for your lifestyle.</p>
                 <a href="../Inventory page/inventory.html" class="group inline-flex items-center justify-center relative overflow-hidden bg-blue-600 hover:bg-blue-700 px-8 py-4 sm:px-10 sm:py-5 rounded-xl font-semibold text-base sm:text-lg transition-all duration-300 shadow-2xl shadow-blue-500/50 hover:shadow-blue-500/70 hover:scale-105 gap-3 text-white">
