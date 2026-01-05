@@ -29,21 +29,36 @@
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        
+
+        * {
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-font-smoothing: antialiased;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
         }
-        
+
         .font-display {
             font-family: 'Inter', sans-serif;
         }
+
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            0%, 100% {
+                transform: translate3d(0, 0, 0);
+            }
+            50% {
+                transform: translate3d(0, -20px, 0);
+            }
         }
         .animate-float {
             animation: float 6s ease-in-out infinite;
+            will-change: transform;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
         }
+
         @keyframes shimmer {
             0% { background-position: -1000px 0; }
             100% { background-position: 1000px 0; }
@@ -53,67 +68,100 @@
             background-size: 1000px 100%;
             animation: shimmer 3s infinite;
         }
+
         .glass-effect {
-            background: rgba(17, 24, 39, 0.7);
+            background: rgba(17, 24, 39, 0.85);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
+
+        @supports not (backdrop-filter: blur(10px)) {
+            .glass-effect {
+                background: rgba(17, 24, 39, 0.95);
+            }
+        }
+
         .gradient-text {
             background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
         }
+
         .premium-gradient {
             background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 25%, #8b5cf6 50%, #ec4899 75%, #f59e0b 100%);
         }
+
         @keyframes drive {
             0% {
-                transform: translateX(-100%) perspective(1000px) rotateY(-8deg) rotateX(2deg);
+                transform: translate3d(-100%, 0, 0) scale(1);
                 opacity: 0;
             }
             5% {
                 opacity: 0.8;
             }
             50% {
-                transform: translateX(50vw) perspective(1000px) rotateY(-5deg) rotateX(1deg);
+                transform: translate3d(50vw, 0, 0) scale(1.02);
                 opacity: 0.85;
             }
             95% {
                 opacity: 0.8;
             }
             100% {
-                transform: translateX(calc(100vw + 100%)) perspective(1000px) rotateY(-8deg) rotateX(2deg);
+                transform: translate3d(calc(100vw + 100%), 0, 0) scale(1);
                 opacity: 0;
             }
         }
+
         .animate-drive {
             animation: drive 25s ease-in-out infinite;
+            will-change: transform, opacity;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
         }
+
         @keyframes drive-reverse {
             0% {
-                transform: translateX(calc(100vw + 100%)) perspective(1000px) rotateY(8deg) rotateX(-2deg) scaleX(-1);
+                transform: translate3d(calc(100vw + 100%), 0, 0) scaleX(-1);
                 opacity: 0;
             }
             5% {
                 opacity: 0.7;
             }
             50% {
-                transform: translateX(50vw) perspective(1000px) rotateY(5deg) rotateX(-1deg) scaleX(-1);
+                transform: translate3d(50vw, 0, 0) scaleX(-1.02);
                 opacity: 0.75;
             }
             95% {
                 opacity: 0.7;
             }
             100% {
-                transform: translateX(-100%) perspective(1000px) rotateY(8deg) rotateX(-2deg) scaleX(-1);
+                transform: translate3d(-100%, 0, 0) scaleX(-1);
                 opacity: 0;
             }
         }
+
         .animate-drive-reverse {
             animation: drive-reverse 25s ease-in-out infinite;
             animation-delay: 12.5s;
+            will-change: transform, opacity;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        /* Force hardware acceleration on iOS */
+        .animate-drive img,
+        .animate-drive-reverse img {
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            will-change: transform;
         }
     </style>
 </head>
@@ -203,16 +251,14 @@
         
         <!-- Moving Vehicles - Covering Whole Hero Section -->
         <div class="absolute top-0 left-0 w-[200vw] h-[100vh] sm:w-[180vw] sm:h-[100vh] md:w-[160vw] md:h-[100vh] lg:w-[150vw] lg:h-[100vh] z-15 animate-drive opacity-80">
-            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=3000&q=80" 
-                 alt="Moving Luxury Vehicle" 
-                 class="w-full h-full object-cover filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] brightness-110"
-                 style="transform: perspective(1000px) rotateY(-8deg) rotateX(2deg);">
+            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=3000&q=80"
+                 alt="Moving Luxury Vehicle"
+                 class="w-full h-full object-cover filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] brightness-110">
         </div>
         <div class="absolute top-0 left-0 w-[190vw] h-[100vh] sm:w-[170vw] sm:h-[100vh] md:w-[150vw] md:h-[100vh] lg:w-[140vw] lg:h-[100vh] z-15 animate-drive-reverse opacity-70">
-            <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=3000&q=80" 
-                 alt="Moving Vehicle" 
-                 class="w-full h-full object-cover filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] brightness-110"
-                 style="transform: perspective(1000px) rotateY(8deg) rotateX(-2deg) scaleX(-1);">
+            <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=3000&q=80"
+                 alt="Moving Vehicle"
+                 class="w-full h-full object-cover filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] brightness-110">
         </div>
         
         <!-- Geometric Accent Shapes -->
